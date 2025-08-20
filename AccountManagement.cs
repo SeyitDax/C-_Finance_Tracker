@@ -1,7 +1,7 @@
 namespace AccountManagement{
     public class Account{
-        public static decimal Balance;
-        public static decimal Debt;
+        public decimal Balance;
+        public decimal Debt;
 
         public Account(decimal balance, decimal debt = 0)
         {
