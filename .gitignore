@@ -1,0 +1,148 @@
+#
+# .gitignore for .NET (C#) projects
+# Covers: Visual Studio, VS Code, Rider, Windows/macOS/Linux OS files,
+# build outputs, test results, NuGet artifacts, publish profiles, coverage.
+#
+
+# --- Operating system files ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# --- IDEs & editors ---
+# Visual Studio
+.vs/
+*.vc.db
+*.VC.db
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# VS Code (ignore all by default but allow common workspace configs)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# --- Build results ---
+[Bb]in/
+[Oo]bj/
+**/Debug/
+**/Release/
+**/Profiling/
+**/x64/
+**/x86/
+**/ARM/
+**/ARM64/
+
+# Rider/Resharper/VS caches
+_ReSharper*/
+*.ReSharper
+*.DotSettings.user
+
+# Logs
+*.log
+logs/
+Logs/
+
+# Test results
+TestResult*/
+TestResults/
+.testresults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+coverage.*
+lcov.info
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Publish artifacts
+**/publish/
+**/out/
+*.pubxml
+*.pubxml.user
+**/Properties/PublishProfiles/*.pubxml
+**/Properties/PublishProfiles/*.pubxml.user
+
+# Entity Framework / scaffolding (designer-generated)
+*.Designer.cs
+*_i.c
+*_p.c
+*_h.h
+
+# Azure
+ServiceFabricBackup/
+AppPackages/
+
+# TFS & Source control
+$tf/
+*.vssscc
+*.vspscc
+
+# Dotenv / secrets
+.env
+.env.*
+*.secret
+*.secrets
+
+# Misc
+*.pid
+*.seed
+*.tmp
+*.temp
+~$*
+*.bak
+*.swp
+*.swo
+
+# SQL Server / LocalDB
+*.mdf
+*.ldf
+*.ndf
+*.dbmdl
+
+# IIS Express
+.vs/\config/applicationhost.config
+IISExpress/*.log
+
+# Node (if present in web projects)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# LibMan
+wwwroot/lib/
+
+# Images and large binaries generated at build time
+*.asset.cache
+
+# Rider & Roslyn caches
+.idea/.idea.*
+.ionide/
+.sarif
+
+# End of file
+
+
