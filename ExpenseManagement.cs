@@ -2,7 +2,7 @@ using AccountManagement;
 namespace ExpenseManagement{
 
     public class Expense{
-        private static int _nextId;
+        private static int _nextId {get; set;}
         public int ID;
         public decimal Amount;
         public DateTime Time;
