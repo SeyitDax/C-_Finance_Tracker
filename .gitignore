@@ -1,0 +1,65 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/**
+**/[Oo]bj/**
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code (keep if you don't want to commit workspace settings)
+.vscode/
+
+# JetBrains Rider / IntelliJ
+.idea/
+*.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+.nuget/
+
+# Logs and caches
+*.log
+*.cache
+*.tmp
+*.temp
+
+# Test results
+TestResult*/
+[TestR]esults*/
+*.trx
+*.coverage
+*.coveragexml
+
+# Publish outputs
+**/publish/**
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts (safety)
+*.dll
+*.exe
+*.pdb
+*.mdb
+
+# Dotnet tools
+.dotnet/tools/
+
+# Local stores
+*/.store/
+
+# Backups
+*.bak
