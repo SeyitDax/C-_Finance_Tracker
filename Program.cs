@@ -57,7 +57,34 @@ namespace Program{
         }
 
         private static void Register(){
-            
+            Console.WriteLine("May I please get your name?");
+            string? name = Console.ReadLine();
+            int _balance;
+            int _debt;
+            while(true)
+            {
+                Console.WriteLine("What is your current bank balance?");
+                string? result = Console.ReadLine();
+
+                if(result != null && int.TryParse(result, out int balance)) {_balance = balance; break;}
+                else
+                {
+                    Console.WriteLine("Please enter a valid balance");
+                }
+            }
+            while(true)
+            {
+                Console.WriteLine("What is your debt? (If none please enter 0)");
+                string? result = Console.ReadLine();
+
+                if(result != null && int.TryParse(result, out int debt)) {_debt = debt; break;}
+                else
+                {
+                    Console.WriteLine("Please enter a valid debt");
+                }
+            }
+            Account account = new Account(_balance, _debt);
+            Console.WriteLine($"Your account ID is: {account.ID}");
         }
     }
 }

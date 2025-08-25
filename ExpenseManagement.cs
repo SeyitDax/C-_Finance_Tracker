@@ -2,11 +2,11 @@ using AccountManagement;
 namespace ExpenseManagement{
 
     public class Expense{
-        private static int _nextId {get; set;}
-        public int ID;
-        public decimal Amount;
-        public DateTime Time;
-        public string? Note;
+        private static int _nextId; 
+        public int ID {get; set;}
+        public decimal Amount {get; set;}
+        public DateTime Time{get; set;}
+        public string? Note{get; set;}
 
         public Expense(Account account,decimal amount, string note = null)
         {

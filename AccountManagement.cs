@@ -1,7 +1,10 @@
 namespace AccountManagement{
     public class Account{
-        public decimal Balance;
-        public decimal Debt;
+        private static int _nextId;
+
+        public int ID {get; set;}
+        public decimal Balance {get; set;}
+        public decimal Debt {get; set;}
 
         public Account(decimal balance, decimal debt = 0)
         {
