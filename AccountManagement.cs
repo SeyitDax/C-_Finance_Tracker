@@ -22,7 +22,12 @@ namespace AccountManagement{
         public IEnumerable<Account> GetAll() => _accounts.Values;
     }
 
-    public class JsonAccountRepository : IAccountRepository { private readonly string _path; private readonly Dictionary<int, Account> _accounts; private int _nextId; public JsonAccountRepository(string path) { _path = path; if (File.Exists(_path))
+    public class JsonAccountRepository : IAccountRepository { 
+        private readonly string _path; 
+        private readonly Dictionary<int, Account> _accounts;
+        private int _nextId; 
+        public JsonAccountRepository(string path) { _path = path;
+        if (File.Exists(_path))
             {
                 var data = JsonSerializer.Deserialize<List<Account>>(File.ReadAllText(_path))?? new();
                 _accounts = data.ToDictionary(a => a.ID);
@@ -52,19 +57,6 @@ namespace AccountManagement{
             File.WriteAllText(_path, JsonSerializer.Serialize(list, new JsonSerializerOptions {WriteIndented = true }));
         }
     }
-    /*
-    private interface IAccountRepository
-    {
-        public Account Add(Account account);
-        public Account GetById(int id);
-        public Dictionary<int, Account> GetAll();
-    }
-
-    public void SaveAccountInMemory : IAccountRepository
-    {
-        private Dictionary<int, Account> _accounts = new();
-    }
-   */ 
     public class Account{
         private static int _nextId;
         private static List<Account> _accountList = new List<Account>();

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.IO;
+using System;
+using System.ComponentModel;
 using System.Linq;
 using AccountManagement;
 
@@ -6,6 +8,13 @@ namespace Program{
     class Program{
         private static void Main(string[] args)
         {
+            var baseDir = AppContext.BaseDirectory;
+            var savesDir = Path.Combine(baseDir, "save");
+            Directory.CreateDirectory(savesDir);
+            var accountsPath = Path.Combine(savesDir, "accounts.json");
+            
+            JsonAccountRepository jsonAccount = new JsonAccountRepository(accountsPath);
+          
             Console.WriteLine("Hello Welcome to our Finance Management System");
             Console.WriteLine("Please Choose an option");
             Console.WriteLine("1.Login");
@@ -27,10 +36,11 @@ namespace Program{
             }
         }
 
-        private static void Login(){
+        private static void Login(string path){
+            JsonAccountRepository jsonAccount = new JsonAccountRepository(path);           
         }
 
-        private static void Register(){
+        private static void Register(string path){
             Console.WriteLine("May I please get your name?");
             string? name = Console.ReadLine();
             int _balance;
@@ -69,7 +79,10 @@ namespace Program{
                     Console.WriteLine("Invalid password. It must be longer than 6 characters and include at least one symbol.");
                 }
             }
-            Account account = new Account(_balance, password!, _debt);
+            Account account = new Account(_balance, password, _debt);
+
+            jsonAccount.Add(account);
+
             Console.WriteLine($"Your account ID is: {account.ID}");
         }
         private static bool IsValidPassword(string password)
