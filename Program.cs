@@ -25,10 +25,10 @@ namespace Program{
 
             switch(choice){
                 case "1": 
-                    Login();
+                    Login(jsonAccount);
                     break;
                 case "2": 
-                    Register();
+                    Register(jsonAccount);
                     break;
                 case "3": 
                     Environment.Exit(0);
@@ -36,11 +36,19 @@ namespace Program{
             }
         }
 
-        private static void Login(string path){
-            JsonAccountRepository jsonAccount = new JsonAccountRepository(path);           
+        private static void Login(JsonAccountRepository jsonAccount){
+            Console.WriteLine("Please enter your account ID");
+            string? _id = Console.ReadLine();
+            
+            Account ?account;
+
+            if(_id != null && int.TryParse(_id, out int ID)) {account = jsonAccount.GetById(ID);} 
+            else {Console.WriteLine("Invalid ID"); account = null;}
+
+            if(account != null) {Console.WriteLine("Loading account details.");}
         }
 
-        private static void Register(string path){
+        private static void Register(JsonAccountRepository jsonAccount){
             Console.WriteLine("May I please get your name?");
             string? name = Console.ReadLine();
             int _balance;
