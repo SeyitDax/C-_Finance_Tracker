@@ -39,11 +39,14 @@ namespace Program{
         private static void Login(JsonAccountRepository jsonAccount){
             Console.WriteLine("Please enter your account ID");
             string? _id = Console.ReadLine();
+
+            Console.WriteLine("Password:");
+            string? _password = Console.ReadLine();
             
             Account ?account;
 
-            if(_id != null && int.TryParse(_id, out int ID)) {account = jsonAccount.GetById(ID);} 
-            else {Console.WriteLine("Invalid ID"); account = null;}
+            if(_id != null && _password != null && int.TryParse(_id, out int ID)) {account = jsonAccount.GetByCreds(ID, _password);} 
+            else {Console.WriteLine("Invalid Credentials"); account = null;}
 
             if(account != null) {Console.WriteLine("Loading account details.");}
         }

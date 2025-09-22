@@ -44,11 +44,22 @@ namespace AccountManagement{
         {
             account.ID = Interlocked.Increment(ref _nextId);
             _accounts[account.ID] = account;
+            _accounts[account.ID].Password = account.Password;
             Persist();
             return account;
         }
 
         public Account? GetById(int id) => _accounts.TryGetValue(id, out var acc) ? acc : null;
+
+        public Account? GetByCreds(int id, string password){
+            _accounts.TryGetValue(id, out var acc);
+
+            if(acc != null && acc.Password == password)
+            return acc;
+
+            Console.WriteLine("Invalid Credentials");
+            return null;
+        }
         public IEnumerable<Account> GetAll() => _accounts.Values;
 
         private void Persist()
@@ -58,19 +69,15 @@ namespace AccountManagement{
         }
     }
     public class Account{
-        private static int _nextId;
-        private static List<Account> _accountList = new List<Account>();
         public string Password {get; set;}
         public int ID {get; set;}
         public decimal Balance {get; set;}
         public decimal Debt {get; set;}
 
         public Account(decimal balance, string password, decimal debt = 0){
-            ID = System.Threading.Interlocked.Increment(ref _nextId);
             Password = password;
             Balance = balance;
             Debt = debt;
-            _accountList.Add(this);
         }
     }
 }
