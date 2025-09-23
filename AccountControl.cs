@@ -4,12 +4,18 @@ namespace AccountControl{
     public interface IAccountControl{
         public CheckBalance(Account acc);
         public CheckDebt(Account acc);
-        public AddMoney(Account acc, decimal amount);
+        public Deposit(Account acc, decimal amount);
         public Withdraw(Account acc, decimal amount);
         public PayDebt(Account acc, decimal amount);
     }
 
     public class ConsoleControl : IAccountControl{
+        public void ControlPanel()
+        {
+            Console.WriteLine("
+            WELCOME! \n What would you like to do today? \n 1.CheckBalance \n 2.CheckDebt \n 3.Deposit \n 4.Withdraw \n 5.Pay Debt");
+        }
+
         public CheckBalance(Account acc)
         {
             Console.WriteLine($"Your Current Balance is: {acc.Balance}");
@@ -20,7 +26,7 @@ namespace AccountControl{
             Console.WriteLine($"Your Current Debt is: {acc.Debt}");
         }
 
-        public AddMoney(Account acc, decimal amount)
+        public Deposit(Account acc, decimal amount)
         {
             acc.Balance += amount;
             Console.WriteLine($"Successfuly Added {amount}");
