@@ -21,26 +21,42 @@ namespace AccountControl{
                 case("1"):
                     CheckBalance(acc);
                     break;
+
                 case("2"):
                     CheckDebt(acc);
                     break;
+
                 case("3"):
                     Console.WriteLine("How much money would you like to deposit?");
                     string? result = Console.ReadLine();
-                    decimal.TryParse(result, out decimal amount) ? Console.WriteLine("Please enter a valid amount!");
-                    Deposit(acc, amount);
+
+                    if (!decimal.TryParse(result, out decimal amount))
+                        Console.WriteLine("Please enter a valid amount!");
+                    else
+                        Deposit(acc, amount);
+
                     break;
+
                 case("4"):
                     Console.WriteLine("How much money would you like to withdraw?");
                     result = Console.ReadLine();
-                    decimal.TryParse(result, out amount) ? Console.WriteLine("Please enter a valid amount!");
-                    Withdraw(acc, amount);
+
+                    if (!decimal.TryParse(result, out amount))
+                        Console.WriteLine("Please enter a valid amount!");
+                    else
+                        Withdraw(acc, amount);
+
                     break;
+                    
                 case("5"):
                     Console.WriteLine("How much money would you like to pay?");
                     result = Console.ReadLine();
-                    decimal.TryParse(result, out amount) ? Console.WriteLine("Please enter a valid amount!");
-                    PayDebt(acc, amount);
+
+                    if (!decimal.TryParse(result, out amount))
+                        Console.WriteLine("Please enter a valid amount!");
+                    else
+                        PayDebt(acc, amount);
+
                     break;
             }
         }

@@ -1,8 +1,5 @@
-﻿using System.IO;
-using System;
-using System.ComponentModel;
-using System.Linq;
-using AccountManagement;
+﻿using AccountManagement;
+using AccountControl;
 
 namespace Program{
     class Program{
@@ -48,7 +45,10 @@ namespace Program{
             if(_id != null && _password != null && int.TryParse(_id, out int ID)) {account = jsonAccount.GetByCreds(ID, _password);} 
             else {Console.WriteLine("Invalid Credentials"); account = null;}
 
-            if(account != null) {Console.WriteLine("Loading account details.");}
+            if(account != null) {
+                ConsoleControl consoleControl = new ConsoleControl();
+                consoleControl.ControlPanel(account);
+            } 
         }
 
         private static void Register(JsonAccountRepository jsonAccount){
